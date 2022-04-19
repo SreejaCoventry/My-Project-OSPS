@@ -1,0 +1,25 @@
+{% extends 'base_u2.html' %}
+{% block content %}
+<h2>View Friend Requests</h2><br><br>
+<table id="tab" width="50%">
+{% for d in data %}
+<tr><td>{{forloop.counter}}<td>{{d.fname}}<td>{{d.femail}}
+<td>
+
+<table><tr><td>
+<form method="post" action="/viewfreq/">
+ {% csrf_token %}
+<input type="hidden" name="name" value="{{d.fname}}">
+<input type="hidden" name="email"value="{{d.femail}}">
+	<input type="submit" value="Accept" class="form-control">
+</form><td>
+<form method="post" action="/reqreject/">
+ {% csrf_token %}
+<input type="hidden" name="name" value="{{d.fname}}">
+<input type="hidden" name="email"value="{{d.femail}}">
+	<input type="submit" value="Reject" class="form-control">
+</form>
+</table>
+{% endfor %}
+</table >
+{% endblock %}

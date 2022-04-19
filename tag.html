@@ -1,0 +1,35 @@
+{% extends 'base_u2.html' %}
+{% block content %}
+
+<center>
+<h2>Tag Requests</h2>
+<br>
+
+<center>
+{% for d in data %}						
+<table id="tab" width="80%">
+<tr><td ><a href="#"><center><img height=200 src="{{baseUrl}}/{{d.ophoto}}" WIDTH="350" alt="" /></a></a>
+<td ><a href="#"><center><img height=200 src="{{baseUrl}}/{{d.photo}}" WIDTH="350" alt="" /></a></a>
+<tr>
+<td colspan=2>{{ d.ownername }} Shared</td>
+</tr>
+<tr>
+<tr><td>
+<form method="post" action="/noted/">
+	 {% csrf_token %}
+	<input type="hidden" name="tid" value="{{ d.id }}" >
+	<input type="submit" value="Noted" class="form-control">
+</form>
+
+<td>
+<form method="post" action="/unblur/">
+	 {% csrf_token %}
+	<input type="hidden" name="tid" value="{{ d.id }}" >
+	<input type="submit" value="Unblur  & Share" class="form-control">
+</form>
+
+</tr>
+</table>
+<br><br>
+{% endfor %}
+{% endblock %}

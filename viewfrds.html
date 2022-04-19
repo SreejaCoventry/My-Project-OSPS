@@ -1,0 +1,18 @@
+{% extends 'base_u2.html' %}
+{% block content %}
+<h2>View Friends</h2><br><br>
+
+<table id="tab" width="50%">
+
+<tr><th>Sno<th>Name<th>Email
+{% for d in data %}
+
+
+<tr><td>{{forloop.counter}}<td>{{d.fr_name}}<td>{{d.fr_email}}
+
+
+{% endfor %}
+
+
+</table >
+{% endblock %}

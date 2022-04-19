@@ -1,0 +1,32 @@
+{% extends 'base_u2.html' %}
+{% block content %}
+<h4>{{msg}}</h4>
+<center>
+<h2>Share Status</h2>
+<br>
+<center>
+<form method="post" action="/writepost/">
+ {% csrf_token %}						
+<table id="tab" width="50%">
+<tr>
+<th>Status</td>
+	<td><textarea name="msg" rows="" cols="" class="form-control"></textarea>
+	</td>
+</tr>
+<tr>
+	<th>Upload Image</td>
+	<td><input type="file" name="photo" accept="image/jpeg" />
+	
+</tr>
+
+	<tr><td><td>
+	
+	
+
+	<input type="submit" value="Share" class="form-control">
+
+</form>
+
+</tr>
+</table>
+{% endblock %}
